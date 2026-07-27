@@ -26,7 +26,6 @@
         }
         .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* Юридический дисклеймер сверху */
         .legal-top {
             background: linear-gradient(90deg, #fff3e0, #ffe0b2);
             color: #b78103;
@@ -39,7 +38,6 @@
             letter-spacing: 1px;
         }
 
-        /* Навигационная панель */
         .mayo-header {
             background: var(--white);
             border-bottom: 2px solid #e2e8f0;
@@ -56,7 +54,6 @@
         .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 15px; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--mayo-blue); }
 
-        /* Живые интерактивные кнопки с эффектом пульсации */
         .btn-mayo {
             display: inline-block;
             background: linear-gradient(135deg, var(--mayo-blue) 0%, var(--mayo-dark) 100%);
@@ -96,7 +93,6 @@
             box-shadow: 0 12px 28px rgba(212,175,55,0.6);
         }
 
-        /* СЛАЙД 1: Главный баннер */
         .hero-section { background: linear-gradient(135deg, #f0f7fc 0%, var(--white) 100%); padding: 100px 0; }
         .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; }
         
@@ -119,7 +115,6 @@
         .hero-info p { font-size: 18px; color: var(--text-muted); margin-bottom: 36px; max-width: 620px; }
         .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
 
-        /* ЖИВАЯ АНИМАЦИЯ: Главное фото (1.JPG) непрерывно парит и дышит */
         .img-container {
             border-radius: 16px;
             overflow: hidden;
@@ -134,7 +129,6 @@
         }
         .main-photo { width: 100%; height: auto; display: block; aspect-ratio: 3/4; object-fit: cover; }
 
-        /* СЛАЙД 2: Направления работы с 3D-всплытием */
         .services-section { padding: 100px 0; background: var(--white); }
         .section-title { text-align: center; font-size: 36px; color: var(--mayo-dark); font-weight: 900; margin-bottom: 12px; }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 18px; margin-bottom: 60px; }
@@ -156,7 +150,6 @@
         .service-card h3 { color: var(--mayo-dark); font-size: 22px; margin-bottom: 16px; font-weight: 800; }
         .service-card p { color: var(--text-muted); font-size: 16px; }
 
-        /* СЛАЙД 3: Ваша расширенная анимированная фотогалерея со всеми фото (2.JPG - 6.JPG) */
         .gallery-section { padding: 100px 0; background: var(--bg-light); }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
         .gallery-item { 
@@ -175,7 +168,6 @@
         }
         .gallery-item:hover img { transform: scale(1.1); }
 
-        /* Блок отзывов пациентов */
         .reviews-section { padding: 100px 0; background: var(--white); }
         .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .review-card { background: var(--bg-light); padding: 40px; border-radius: 12px; border-left: 6px solid var(--mayo-blue); transition: border-color 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
@@ -184,7 +176,6 @@
         .review-card .author { font-weight: 800; color: var(--mayo-dark); display: flex; justify-content: space-between; font-size: 16px; }
         .stars { color: var(--gold-dark); letter-spacing: 2px; }
 
-        /* Финальный блок записи */
         .cta-block { 
             background: linear-gradient(135deg, var(--mayo-dark) 0%, #005691 100%); 
             color: var(--white); 
@@ -198,11 +189,31 @@
         .cta-block p { opacity: 0.95; font-size: 19px; margin-bottom: 35px; }
         .cta-flex { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 
-        /* Юридический подвал */
         footer { background: #0f172a; color: #94a3b8; padding: 70px 0 40px 0; }
         .footer-warning { border: 2px dashed #334155; padding: 22px; text-align: center; color: #cbd5e1; font-weight: 800; font-size: 17px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 35px; border-radius: 8px; line-height: 1.5; }
         .footer-text { font-size: 14px; line-height: 1.7; text-align: center; max-width: 1020px; margin: 0 auto 35px auto; opacity: 0.8; }
         .copyright { text-align: center; font-size: 13px; border-top: 1px solid #1e293b; padding-top: 25px; color: #64748b; }
+
+        @keyframes fadeInReveal {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatLive {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212,175,55,0); }
+            100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+        }
+
+        @media(max-width: 900px) {
+            .hero-grid, .services-grid, .gallery-grid, .reviews-grid { grid-template-columns: 1fr; }
+            .img-container { max-width: 340px; margin: 40px auto 0 auto; }
+            .nav-links { display: none; }
+            .hero-info h1 { font-size: 34px; text-align: center; }
 
         /* ТЕХНИЧЕСКИЕ CSS АНИМАЦИИ */
         @keyframes fadeInReveal {
