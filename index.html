@@ -133,8 +133,14 @@ header.scrolled{
 .nav-links a:hover{color:var(--blue);}
 .nav-links a:hover::after{width:100%;}
 .nav-cta{display:flex;align-items:center;gap:18px;}
-.header-phone{font-weight:700;font-size:14.5px;color:var(--navy);text-decoration:none;white-space:nowrap;}
-.header-phone small{display:block;font-weight:500;font-size:11px;color:var(--muted);}
+.header-phone{font-weight:800;font-size:22px;color:var(--navy);text-decoration:none;white-space:nowrap;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;transition:color .3s;}
+.header-phone:hover{color:var(--blue);}
+.header-phone .phone-ic{
+  width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#b8901f);
+  display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;
+  animation:pulseGoldShadow 2.4s ease-in-out infinite;
+}
+.header-phone small{display:block;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:0;}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
 .burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s;}
 
@@ -400,6 +406,36 @@ section{padding:120px 0;}
 .why-card p{font-size:14px;color:var(--muted);line-height:1.65;font-family:-apple-system,sans-serif;}
 @media(max-width:900px){.why-grid{grid-template-columns:1fr;}}
 
+/* methodology trust banner */
+.method-banner{
+  margin-top:40px;background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:22px;
+  padding:36px 40px;display:flex;align-items:center;gap:28px;box-shadow:var(--shadow-strong);
+}
+.method-banner .m-icon{
+  width:60px;height:60px;border-radius:16px;flex-shrink:0;background:rgba(212,175,55,0.18);
+  display:flex;align-items:center;justify-content:center;font-size:28px;
+  animation:wiggle 3.2s ease-in-out infinite;
+}
+.method-banner h4{color:#fff;font-size:18px;margin-bottom:8px;font-family:Georgia,serif;}
+.method-banner p{color:rgba(255,255,255,0.75);font-size:14px;line-height:1.65;font-family:-apple-system,sans-serif;}
+@media(max-width:700px){.method-banner{flex-direction:column;text-align:center;padding:30px 24px;}}
+
+/* floating call button */
+#callFloat{
+  position:fixed;bottom:28px;left:28px;z-index:900;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--gold),#b8901f);color:var(--navy);
+  padding:14px 22px 14px 16px;border-radius:100px;text-decoration:none;font-weight:800;font-size:14.5px;
+  box-shadow:0 12px 28px rgba(212,175,55,0.4);
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:all .4s var(--ease); font-family:-apple-system,sans-serif;
+}
+#callFloat.show{opacity:1;visibility:visible;transform:translateY(0);}
+#callFloat:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(212,175,55,0.55);}
+#callFloat .dot{width:10px;height:10px;border-radius:50%;background:#2e8b57;animation:pulseDot 1.6s ease-in-out infinite;flex-shrink:0;}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(46,139,87,0.5);}50%{box-shadow:0 0 0 6px rgba(46,139,87,0);}}
+@media(max-width:640px){#callFloat span.ct{display:none;} #callFloat{padding:14px;}}
+
 /* IV photo gallery */
 .iv-photos{margin-top:60px;}
 .iv-photos-grid{
@@ -448,6 +484,46 @@ section{padding:120px 0;}
 .price-row .val{font-size:19px;font-weight:800;color:var(--blue);white-space:nowrap;font-family:Georgia,serif;}
 .price-note{text-align:center;margin-top:22px;color:var(--muted);font-size:13.5px;font-family:-apple-system,sans-serif;}
 
+/* embedded schedule iframe */
+.schedule-embed{margin-top:40px;}
+.schedule-frame-wrap{
+  border-radius:22px;overflow:hidden;box-shadow:var(--shadow-strong);border:1px solid var(--line);
+  background:#fff;max-width:900px;margin:0 auto;
+}
+.schedule-frame-wrap iframe{width:100%;height:780px;border:none;display:block;}
+.schedule-fallback{
+  text-align:center;margin-top:18px;color:var(--muted);font-size:13.5px;
+  font-family:-apple-system,sans-serif;max-width:700px;margin-left:auto;margin-right:auto;
+}
+.schedule-fallback a{color:var(--blue);font-weight:700;text-decoration:underline;}
+
+/* how it works steps */
+.steps-section{background:#fff;}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.steps-grid::before{
+  content:"";position:absolute;top:32px;left:12%;right:12%;height:2px;
+  background:repeating-linear-gradient(90deg,var(--line) 0 8px, transparent 8px 16px);
+}
+.step-item{text-align:center;padding:0 18px;position:relative;}
+.step-num{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;
+  background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-weight:800;font-size:22px;
+  display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;
+  box-shadow:0 10px 24px rgba(21,101,192,0.3);
+}
+.step-item h4{font-size:16.5px;color:var(--navy);margin-bottom:10px;font-family:Georgia,serif;}
+.step-item p{font-size:13.5px;color:var(--muted);line-height:1.6;font-family:-apple-system,sans-serif;}
+@media(max-width:900px){
+  .steps-grid{grid-template-columns:1fr 1fr;gap:32px 0;}
+  .steps-grid::before{display:none;}
+}
+@media(max-width:560px){.steps-grid{grid-template-columns:1fr;}}
+
+/* map */
+.map-section{background:var(--cream);}
+.map-frame-wrap{border-radius:22px;overflow:hidden;box-shadow:var(--shadow-soft);border:1px solid var(--line);max-width:900px;margin:0 auto;}
+.map-frame-wrap iframe{width:100%;height:380px;border:none;display:block;}
+
 /* ---------- testimonials ---------- */
 .reviews-section{background:#fff;}
 .slider{position:relative;max-width:760px;margin:0 auto;overflow:hidden;}
@@ -481,7 +557,8 @@ section{padding:120px 0;}
 /* ---------- faq ---------- */
 .faq-section{background:var(--cream);}
 .faq-list{max-width:760px;margin:0 auto;}
-.faq-item{background:#fff;border-radius:16px;margin-bottom:14px;border:1px solid var(--line);overflow:hidden;}
+.faq-list.faq-grid{max-width:1000px;display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-content:start;}
+.faq-item{background:#fff;border-radius:16px;margin-bottom:14px;border:1px solid var(--line);overflow:hidden;align-self:start;}
 .faq-q{
   display:flex;justify-content:space-between;align-items:center;gap:16px;
   padding:22px 26px;cursor:pointer;font-weight:700;color:var(--navy);font-size:16px;
@@ -495,6 +572,7 @@ section{padding:120px 0;}
 .faq-item.open .faq-q .plus{transform:rotate(135deg);background:var(--navy);color:#fff;}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
 .faq-a p{padding:0 26px 22px;color:var(--muted);font-size:15px;line-height:1.7;font-family:-apple-system,sans-serif;}
+@media(max-width:800px){.faq-list.faq-grid{grid-template-columns:1fr;}}
 
 /* ---------- cta / contact ---------- */
 .cta-section{padding:0 0 120px;}
@@ -518,6 +596,9 @@ section{padding:120px 0;}
 }
 .contact-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;font-family:-apple-system,sans-serif;}
 .contact-row:last-child{margin-bottom:0;}
+a.contact-row{text-decoration:none;cursor:pointer;border-radius:12px;padding:8px;margin:-8px -8px 12px -8px;transition:background .3s;}
+a.contact-row:hover{background:rgba(255,255,255,0.08);}
+a.contact-row:hover .ic{background:rgba(212,175,55,0.3);}
 .contact-row .ic{
   width:38px;height:38px;border-radius:10px;background:rgba(212,175,55,0.18);
   display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:var(--gold-light);
@@ -628,6 +709,7 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
     <ul class="nav-links">
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#why">Почему я</a></li>
+      <li><a href="#steps">Как проходит приём</a></li>
       <li><a href="#services">Специализация</a></li>
       <li><a href="#gallery">Кабинет</a></li>
       <li><a href="#pricing">Стоимость</a></li>
@@ -636,7 +718,7 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
       <li><a href="#faq">Вопросы</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="tel:+74951059344" class="header-phone">+7 (495) 105-93-44<small>Ежедневно 8:00–21:00</small></a>
+      <a href="tel:+74951059344" class="header-phone"><span class="phone-ic">📞</span><span>+7 (495) 105-93-44<small>Клиника «Первый Доктор» · 8:00–21:00</small></span></a>
       <a href="#contact" class="btn btn-primary btn-sm">Записаться</a>
       <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
@@ -645,9 +727,12 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
 
 <div class="menu-overlay" id="menuOverlay"></div>
 <nav class="mobile-menu" id="mobileMenu">
+  <a href="tel:+74951059344" style="display:block;font-size:20px;font-weight:800;color:var(--navy);text-decoration:none;margin-bottom:6px;">📞 +7 (495) 105-93-44</a>
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:26px;font-family:-apple-system,sans-serif;">Клиника «Первый Доктор» · 8:00–21:00</p>
   <ul>
     <li><a href="#about">Обо мне</a></li>
     <li><a href="#why">Почему я</a></li>
+    <li><a href="#steps">Как проходит приём</a></li>
     <li><a href="#services">Специализация</a></li>
     <li><a href="#gallery">Кабинет</a></li>
     <li><a href="#pricing">Стоимость</a></li>
@@ -769,6 +854,46 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
         <div class="why-num">06</div>
         <h4>Запись onlайн, без звонков</h4>
         <p>Можно записаться через ПроДокторов или через сайт клиники «Первый Доктор» — выбирайте, как удобнее.</p>
+      </div>
+    </div>
+
+    <div class="method-banner reveal">
+      <div class="m-icon">🌍</div>
+      <div>
+        <h4>Доказательная медицина как основа приёма</h4>
+        <p>В диагностике и лечении ориентируюсь на современные клинические рекомендации и принципы доказательной медицины, принятые в мировой практике — назначения обоснованы, а не «на всякий случай».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-section" id="steps">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Как это устроено</div>
+      <h2 class="section-title">Как проходит приём</h2>
+      <p class="section-desc">Чтобы первый визит не вызывал тревоги — коротко о том, что вас ждёт</p>
+    </div>
+    <div class="steps-grid stagger">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <h4>Онлайн-запись</h4>
+        <p>Выбираете удобное время через ПроДокторов, «Первый Доктор» или пишете напрямую в WhatsApp/MAX</p>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">2</div>
+        <h4>Осмотр и беседа</h4>
+        <p>Подробно обсуждаем жалобы и историю здоровья — без спешки, столько времени, сколько нужно</p>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">3</div>
+        <h4>Диагностика</h4>
+        <p>При необходимости — ЭКГ, УЗИ или другие обследования тут же, на месте</p>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">4</div>
+        <h4>План лечения</h4>
+        <p>Понятные рекомендации и, если нужно, дальнейшее наблюдение динамики</p>
       </div>
     </div>
   </div>
@@ -1138,7 +1263,7 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
       <div class="section-eyebrow">Вопросы</div>
       <h2 class="section-title">Часто задаваемые вопросы</h2>
     </div>
-    <div class="faq-list">
+    <div class="faq-list faq-grid stagger">
       <div class="faq-item reveal">
         <div class="faq-q"><span>Нужна ли предварительная запись?</span><span class="plus">+</span></div>
         <div class="faq-a"><p>Да, приём ведётся строго по предварительной записи — это позволяет уделить каждому пациенту достаточно времени.</p></div>
@@ -1153,7 +1278,23 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
       </div>
       <div class="faq-item reveal">
         <div class="faq-q"><span>Как записаться на консультацию?</span><span class="plus">+</span></div>
-        <div class="faq-a"><p>Позвоните по указанному телефону или напишите в Telegram — подберём удобное время приёма.</p></div>
+        <div class="faq-a"><p>Позвоните по телефону клиники, напишите в WhatsApp или MAX, либо запишитесь онлайн через ПроДокторов или «Первый Доктор» прямо на этом сайте.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span>Проводится ли УЗИ на приёме?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Да, я прошла профессиональное обучение УЗИ-диагностике и провожу исследования на современном оборудовании клиники.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span>Можно ли пройти IV-терапию без предварительного осмотра?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Нет — состав и дозировка капельницы подбираются индивидуально после короткой консультации, чтобы учесть противопоказания.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span>Сколько длится первичная консультация?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>В среднем 30–40 минут — этого времени достаточно, чтобы подробно разобрать жалобы, не торопясь.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span>Оказывается ли помощь на дому?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Клиника «Первый Доктор» предоставляет услугу вызова врача на дом по Москве и области — уточните возможность записи ко мне на дом по телефону клиники.</p></div>
       </div>
     </div>
   </div>
@@ -1180,6 +1321,13 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
         <a href="https://1doctor.ru/specialists/rustamova-mahliye-akhmadzhonovna/" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:14px;">Записаться в «Первый Доктор»</a>
       </div>
     </div>
+
+    <div class="schedule-embed reveal">
+      <div class="schedule-frame-wrap">
+        <iframe src="https://1doctor.ru/specialists/rustamova-mahliye-akhmadzhonovna/" title="Расписание и запись на приём" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="schedule-fallback">Если расписание выше не отобразилось — это ограничение безопасности сайта клиники, не ошибка. <a href="https://1doctor.ru/specialists/rustamova-mahliye-akhmadzhonovna/" target="_blank" rel="noopener">Открыть расписание в отдельном окне →</a></p>
+    </div>
   </div>
 </section>
 
@@ -1200,12 +1348,24 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
         </div>
       </div>
       <div class="contact-card reveal">
-        <div class="contact-row"><div class="ic">📍</div><div><b>Адрес приёма</b><span>г. Мытищи, ул. Лётная, 40</span></div></div>
-        <div class="contact-row"><div class="ic">📞</div><div><b>+7 (495) 105-93-44</b><span>Телефон клиники · ежедневно 8:00–21:00</span></div></div>
-        <div class="contact-row"><div class="ic">💬</div><div><b>+7 996 634-40-60</b><span>WhatsApp — личная связь с врачом</span></div></div>
-        <div class="contact-row"><div class="ic">💠</div><div><b>MAX</b><span>Сообщение через мессенджер MAX</span></div></div>
+        <a href="https://yandex.ru/maps/?text=г.+Мытищи,+ул.+Лётная,+40" target="_blank" rel="noopener" class="contact-row"><div class="ic">📍</div><div><b>Адрес приёма</b><span>г. Мытищи, ул. Лётная, 40 — открыть на карте</span></div></a>
+        <a href="tel:+74951059344" class="contact-row"><div class="ic">📞</div><div><b>+7 (495) 105-93-44</b><span>Телефон клиники · ежедневно 8:00–21:00</span></div></a>
+        <a href="https://wa.me/79966344060" target="_blank" rel="noopener" class="contact-row"><div class="ic">💬</div><div><b>+7 996 634-40-60</b><span>WhatsApp — личная связь с врачом</span></div></a>
+        <a href="https://max.ru/" target="_blank" rel="noopener" class="contact-row"><div class="ic">💠</div><div><b>MAX</b><span>Сообщение через мессенджер MAX</span></div></a>
         <div class="contact-row"><div class="ic">🩺</div><div><b>Терапевт · Анестезиолог-реаниматолог</b><span>Стаж — 5 лет</span></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Как добраться</div>
+      <h2 class="section-title">г. Мытищи, ул. Лётная, 40</h2>
+    </div>
+    <div class="map-frame-wrap reveal">
+      <iframe src="https://yandex.ru/map-widget/v1/?text=г.%20Мытищи,%20ул.%20Лётная,%2040" title="Карта проезда к клинике" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -1233,6 +1393,8 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
   </div>
 </div>
 
+<a href="tel:+74951059344" id="callFloat"><span class="dot"></span>📞 <span class="ct">Позвонить в клинику</span></a>
+
 <button id="toTop" aria-label="Наверх">↑</button>
 
 <script>
@@ -1246,12 +1408,14 @@ setTimeout(()=>document.getElementById('preloader')?.classList.add('hide'), 1800
 const header = document.getElementById('siteHeader');
 const progress = document.getElementById('progress');
 const toTop = document.getElementById('toTop');
+const callFloat = document.getElementById('callFloat');
 window.addEventListener('scroll', () => {
   const st = window.scrollY;
   const h = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.width = (st / h * 100) + '%';
   header.classList.toggle('scrolled', st > 40);
   toTop.classList.toggle('show', st > 500);
+  callFloat.classList.toggle('show', st > 350);
 });
 toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
