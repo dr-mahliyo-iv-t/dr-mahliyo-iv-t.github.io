@@ -318,6 +318,39 @@ section{padding:120px 0;}
 
 /* ---------- conditions chips ---------- */
 .conditions-wrap{margin-top:56px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+
+/* checkup programs */
+.checkup-section{background:var(--cream);}
+.checkup-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.checkup-card{
+  background:#fff;border-radius:22px;padding:36px 34px;border:1px solid var(--line);
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease);position:relative;overflow:hidden;
+}
+.checkup-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-strong);}
+.checkup-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--blue),var(--gold));transform:scaleX(0);transform-origin:left;
+  transition:transform .5s var(--ease);
+}
+.checkup-card:hover::before{transform:scaleX(1);}
+.checkup-num{
+  display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;
+  background:var(--cream);color:var(--blue);font-weight:800;font-family:Georgia,serif;font-size:15px;margin-bottom:18px;
+}
+.checkup-card h3{font-size:20px;color:var(--navy);margin-bottom:6px;font-family:Georgia,serif;line-height:1.3;}
+.checkup-card .checkup-for{font-size:13.5px;color:var(--blue);font-weight:700;margin-bottom:18px;font-family:-apple-system,sans-serif;}
+.checkup-card h5{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:16px 0 8px;font-family:-apple-system,sans-serif;}
+.checkup-card ul{margin:0 0 4px;padding-left:18px;}
+.checkup-card li{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:5px;font-family:-apple-system,sans-serif;}
+.checkup-result{
+  margin-top:16px;padding:14px 16px;background:var(--cream);border-radius:12px;border-left:3px solid var(--gold);
+  font-size:13.5px;color:var(--navy);line-height:1.6;font-family:-apple-system,sans-serif;
+}
+.checkup-note{
+  max-width:800px;margin:44px auto 0;text-align:center;font-size:13px;color:var(--muted);
+  line-height:1.8;font-family:-apple-system,sans-serif;padding:0 12px;
+}
+@media(max-width:900px){.checkup-grid{grid-template-columns:1fr;}}
 .chip{
   background:#fff;border:1px solid var(--line);padding:11px 20px;border-radius:100px;
   font-size:14.5px;font-weight:600;color:var(--navy);font-family:-apple-system,sans-serif;
@@ -711,9 +744,10 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
       <li><a href="#why">Почему я</a></li>
       <li><a href="#steps">Как проходит приём</a></li>
       <li><a href="#services">Специализация</a></li>
+      <li><a href="#checkup">Check-up</a></li>
       <li><a href="#gallery">Кабинет</a></li>
       <li><a href="#pricing">Стоимость</a></li>
-      <li><a href="#booking">Онлайн-запись</a></li>
+      <li><a href="#booking">Запись</a></li>
       <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#faq">Вопросы</a></li>
     </ul>
@@ -734,9 +768,10 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
     <li><a href="#why">Почему я</a></li>
     <li><a href="#steps">Как проходит приём</a></li>
     <li><a href="#services">Специализация</a></li>
+    <li><a href="#checkup">Check-up</a></li>
     <li><a href="#gallery">Кабинет</a></li>
     <li><a href="#pricing">Стоимость</a></li>
-    <li><a href="#booking">Онлайн-запись</a></li>
+    <li><a href="#booking">Запись</a></li>
     <li><a href="#reviews">Отзывы</a></li>
     <li><a href="#faq">Вопросы</a></li>
     <li><a href="#contact">Контакты</a></li>
@@ -852,8 +887,8 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
       </div>
       <div class="why-card reveal">
         <div class="why-num">06</div>
-        <h4>Запись onlайн, без звонков</h4>
-        <p>Можно записаться через ПроДокторов или через сайт клиники «Первый Доктор» — выбирайте, как удобнее.</p>
+        <h4>Быстрая запись по телефону</h4>
+        <p>Звонок в клинику или напрямую мне — никаких форм и ожидания, запись занимает пару минут.</p>
       </div>
     </div>
 
@@ -960,6 +995,77 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
       <span class="chip reveal">УЗИ-диагностика</span>
       <span class="chip reveal">IV-терапия</span>
     </div>
+  </div>
+</section>
+
+<section class="checkup-section" id="checkup">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Check-up программы</div>
+      <h2 class="section-title">Комплексные программы обследования</h2>
+      <p class="section-desc">Синергия терапии, УЗИ и функциональной диагностики в рамках одной консультации — без беготни по разным кабинетам</p>
+    </div>
+    <div class="checkup-grid stagger">
+
+      <div class="checkup-card reveal">
+        <div class="checkup-num">01</div>
+        <h3>«Терапевтический оптимум и онкостороженность»</h3>
+        <div class="checkup-for">Для тех, кто хочет системный ежегодный контроль состояния организма</div>
+        <h5>Что входит</h5>
+        <ul>
+          <li>Развёрнутая консультация терапевта (30–40 минут)</li>
+          <li>УЗИ щитовидной железы</li>
+          <li>УЗИ органов брюшной полости и почек</li>
+          <li>ЭКГ с расшифровкой</li>
+          <li>Персональный «паспорт здоровья» с рекомендациями</li>
+        </ul>
+        <div class="checkup-result">Раннее выявление отклонений, которые пока не дают симптомов, и понятная точка отсчёта для дальнейшего наблюдения динамики.</div>
+      </div>
+
+      <div class="checkup-card reveal">
+        <div class="checkup-num">02</div>
+        <h3>«Кардио-метаболический аудит»</h3>
+        <div class="checkup-for">Для тех, у кого скачки давления, случаи аритмии в семье или повышенная утомляемость</div>
+        <h5>Что входит</h5>
+        <ul>
+          <li>Суточное мониторирование Холтер</li>
+          <li>СМАД (суточный мониторинг давления)</li>
+          <li>ЭКГ в динамике</li>
+          <li>Оценка совместимости принимаемых препаратов</li>
+        </ul>
+        <div class="checkup-result">Выявление скрытой гипертонии и нарушений ритма на ранней стадии, снижение рисков сосудистых осложнений за счёт своевременной коррекции.</div>
+      </div>
+
+      <div class="checkup-card reveal">
+        <div class="checkup-num">03</div>
+        <h3>«Anti-age & IV-Превенция»</h3>
+        <div class="checkup-for">Для тех, кто сталкивается с хронической усталостью и снижением тонуса</div>
+        <h5>Что входит</h5>
+        <ul>
+          <li>Оценка нутритивного статуса</li>
+          <li>Экспресс-скрининг функции печени и почек перед инфузией</li>
+          <li>Индивидуальный подбор состава капельницы (регидратация, детокс, антиоксидантная поддержка)</li>
+          <li>Контроль врача с реанимационным опытом на всём протяжении процедуры</li>
+        </ul>
+        <div class="checkup-result">Стойкая положительная динамика по энергии и самочувствию. Капельница назначается только после очной консультации, изучения анализов и исключения противопоказаний.</div>
+      </div>
+
+      <div class="checkup-card reveal">
+        <div class="checkup-num">04</div>
+        <h3>«Экспертный Gastro-Скрининг»</h3>
+        <div class="checkup-for">Для тех, у кого пищеварение реагирует на стресс</div>
+        <h5>Что входит</h5>
+        <ul>
+          <li>Пальпаторная диагностика</li>
+          <li>УЗИ ОБП: печень, желчный пузырь с оценкой сократимости, поджелудочная железа, селезёнка</li>
+          <li>Бережная схема нутритивной поддержки для восстановления слизистой ЖКТ</li>
+        </ul>
+        <div class="checkup-result">Понимание первопричины дискомфорта и щадящая коррекция без избыточной лекарственной нагрузки.</div>
+      </div>
+
+    </div>
+
+    <p class="checkup-note">Информация носит ознакомительный характер и не является публичной офертой. Указанные программы не гарантируют конкретного результата — объём диагностики и рекомендаций определяется врачом индивидуально по итогам очного осмотра. Проведение внутривенных инфузий возможно только после очной консультации, оценки анамнеза, лабораторных показателей и исключения противопоказаний. Точный состав услуг и их стоимость уточняйте в клинике приёма.</p>
   </div>
 </section>
 
@@ -1278,7 +1384,7 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
       </div>
       <div class="faq-item reveal">
         <div class="faq-q"><span>Как записаться на консультацию?</span><span class="plus">+</span></div>
-        <div class="faq-a"><p>Позвоните по телефону клиники, напишите в WhatsApp или MAX, либо запишитесь онлайн через ПроДокторов или «Первый Доктор» прямо на этом сайте.</p></div>
+        <div class="faq-a"><p>Позвоните по телефону клиники или напрямую мне — оба номера указаны в шапке сайта и в блоке контактов внизу.</p></div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q"><span>Проводится ли УЗИ на приёме?</span><span class="plus">+</span></div>
@@ -1303,30 +1409,23 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
 <section class="pricing-section" id="booking">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="section-eyebrow">Онлайн-запись</div>
-      <h2 class="section-title">Запишитесь на приём онлайн</h2>
-      <p class="section-desc">Выберите удобную платформу — запись подтвердит администратор клиники</p>
+      <div class="section-eyebrow">Запись на приём</div>
+      <h2 class="section-title">Записаться можно по телефону</h2>
+      <p class="section-desc">Самый быстрый и надёжный способ — позвонить или написать напрямую</p>
     </div>
     <div class="services-grid" style="grid-template-columns:1fr 1fr;max-width:820px;margin:0 auto;">
-      <div class="service-card reveal">
-        <div class="service-icon">🌐</div>
-        <h3>Через ПроДокторов</h3>
-        <p>Онлайн-запись на приём и просмотр отзывов пациентов на сервисе prodoctorov.ru.</p>
-        <a href="https://prodoctorov.ru/mytishi/vrach/1134489-rustamova/" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:14px;">Записаться на ПроДокторов</a>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🏥</div>
+      <div class="service-card reveal" style="text-align:center;">
+        <div class="service-icon" style="margin:0 auto 22px;">🏥</div>
         <h3>Клиника «Первый Доктор»</h3>
-        <p>Запись напрямую через сайт клиники, в которой ведётся приём — 1doctor.ru.</p>
-        <a href="https://1doctor.ru/specialists/rustamova-mahliye-akhmadzhonovna/" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:14px;">Записаться в «Первый Доктор»</a>
+        <p>Администратор подберёт время приёма</p>
+        <a href="tel:+74951059344" class="btn btn-primary btn-sm" style="margin-top:18px;font-size:19px;padding:16px 28px;">+7 (495) 105-93-44</a>
       </div>
-    </div>
-
-    <div class="schedule-embed reveal">
-      <div class="schedule-frame-wrap">
-        <iframe src="https://1doctor.ru/specialists/rustamova-mahliye-akhmadzhonovna/" title="Расписание и запись на приём" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="service-card reveal" style="text-align:center;">
+        <div class="service-icon" style="margin:0 auto 22px;">💬</div>
+        <h3>Личный номер</h3>
+        <p>Напрямую ко мне — звонок или сообщение</p>
+        <a href="tel:+79966344060" class="btn btn-gold" style="margin-top:18px;font-size:19px;padding:16px 28px;">+7 996 634-40-60</a>
       </div>
-      <p class="schedule-fallback">Если расписание выше не отобразилось — это ограничение безопасности сайта клиники, не ошибка. <a href="https://1doctor.ru/specialists/rustamova-mahliye-akhmadzhonovna/" target="_blank" rel="noopener">Открыть расписание в отдельном окне →</a></p>
     </div>
   </div>
 </section>
@@ -1338,20 +1437,14 @@ footer{background:#071a2e;color:rgba(255,255,255,0.55);padding:60px 0 34px;}
         <h2>Запишитесь на консультацию</h2>
         <p>Свяжитесь удобным способом — отвечу на вопросы, помогу выбрать день и время приёма.</p>
         <div class="cta-flex">
-          <a href="tel:+74951059344" class="btn btn-gold">Позвонить в клинику</a>
-          <a href="https://wa.me/79966344060" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">Написать в WhatsApp</a>
-          <a href="https://max.ru/" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">Написать в MAX</a>
-        </div>
-        <div class="cta-flex" style="margin-top:14px;">
-          <a href="https://prodoctorov.ru/mytishi/vrach/1134489-rustamova/" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">Запись через ПроДокторов</a>
-          <a href="https://1doctor.ru/specialists/rustamova-mahliye-akhmadzhonovna/" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">Запись через «Первый Доктор»</a>
+          <a href="tel:+74951059344" class="btn btn-gold">📞 Клиника: +7 (495) 105-93-44</a>
+          <a href="tel:+79966344060" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">📞 Лично: +7 996 634-40-60</a>
         </div>
       </div>
       <div class="contact-card reveal">
         <a href="https://yandex.ru/maps/?text=г.+Мытищи,+ул.+Лётная,+40" target="_blank" rel="noopener" class="contact-row"><div class="ic">📍</div><div><b>Адрес приёма</b><span>г. Мытищи, ул. Лётная, 40 — открыть на карте</span></div></a>
         <a href="tel:+74951059344" class="contact-row"><div class="ic">📞</div><div><b>+7 (495) 105-93-44</b><span>Телефон клиники · ежедневно 8:00–21:00</span></div></a>
-        <a href="https://wa.me/79966344060" target="_blank" rel="noopener" class="contact-row"><div class="ic">💬</div><div><b>+7 996 634-40-60</b><span>WhatsApp — личная связь с врачом</span></div></a>
-        <a href="https://max.ru/" target="_blank" rel="noopener" class="contact-row"><div class="ic">💠</div><div><b>MAX</b><span>Сообщение через мессенджер MAX</span></div></a>
+        <a href="tel:+79966344060" class="contact-row"><div class="ic">📞</div><div><b>+7 996 634-40-60</b><span>Личный номер — звонок напрямую</span></div></a>
         <div class="contact-row"><div class="ic">🩺</div><div><b>Терапевт · Анестезиолог-реаниматолог</b><span>Стаж — 5 лет</span></div></div>
       </div>
     </div>
